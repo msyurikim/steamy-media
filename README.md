@@ -16,7 +16,7 @@
 
   ## Usage
 
-to: | enter
+Command | Description
 :---:|---:
 `npm run start` | starts nodemon
 `npm run build-dev` | starts webpack
