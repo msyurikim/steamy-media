@@ -40,6 +40,7 @@ class App extends React.Component {
   componentDidMount() {
     const url = window.location.search;
     const id = url.substring(2);
+    console.log(id);
     axios.get('/media', {
       params: {
         proxyId: id,
