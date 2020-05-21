@@ -31,7 +31,9 @@ const gameSchema = new mongoose.Schema({
 
 const Game = mongoose.model('Game', gameSchema);
 
-module.exports.addNewGame = (game, cb) => {
+// CREATE
+
+const addNewGame = (game, cb) => {
   const newGame = new Game(game);
   // eslint-disable-next-line no-shadow
   newGame.save((err, newGame) => {
@@ -43,7 +45,10 @@ module.exports.addNewGame = (game, cb) => {
   });
 };
 
-module.exports.getGame = (game, cb) => {
+// READ
+
+const getGame = (game, cb) => {
+  console.log('getGame() ' + game.proxyId);
   Game.find({ proxyId: game.proxyId }, (err, data) => {
     if (err) {
       cb(err);
@@ -51,4 +56,64 @@ module.exports.getGame = (game, cb) => {
       cb(null, data);
     }
   });
+};
+
+// UPDATE
+
+const updateGame = (game, updateInfo, cb) => {
+  console.log('updateGame()');
+  Game.updateOne({ proxyId: game.proxyId }, updateInfo, { upsert: true }, (err, data) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, data);
+    }
+  });
+};
+
+/*
+db.collection.updateOne(
+   <filter>,
+   <update>,
+   {
+     upsert: <boolean>,
+     writeConcern: <document>,
+     collation: <document>,
+     arrayFilters: [ <filterdocument1>, ... ],
+   }
+)
+*/
+
+
+// DELETE ONE
+
+const deleteSingle = (gameID, cb) => {
+  console.log('deleteSingle() ' + gameID);
+  Game.findOneAndDelete({ proxyId: gameID }, (error, query) => {
+    if (error) {
+      return cb(error, null);
+    } else {
+      return cb(null, query);
+    }
+    
+  });
+};
+
+// DELETE ALL
+
+const deleteAll = () => {
+  console.log('deleteAll()');
+  Game.deleteMany({}, (error) => {
+    if (error) {
+       console.log(error);
+    }
+  });
+}
+
+module.exports = {
+  addNewGame,
+  getGame,
+  updateGame,
+  deleteSingle,
+  deleteAll,
 };
