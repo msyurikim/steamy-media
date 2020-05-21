@@ -16,9 +16,7 @@
 
   ## Usage
 
-####scripts
-
-to: | enter
+Command | Description
 :---:|---:
 `npm run start` | starts nodemon
 `npm run build-dev` | starts webpack
@@ -26,8 +24,6 @@ to: | enter
 `npm run test` | runs jest testing
 
   ## API
-
-####API
 
 |REST|API ENDPOINTS|
 |--:|:-:|
