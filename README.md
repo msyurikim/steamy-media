@@ -16,8 +16,6 @@
 
   ## Usage
 
-####scripts
-
 to: | enter
 :---:|---:
 `npm run start` | starts nodemon
@@ -26,8 +24,6 @@ to: | enter
 `npm run test` | runs jest testing
 
   ## API
-
-####API
 
 |REST|API ENDPOINTS|
 |--:|:-:|
