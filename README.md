@@ -1,6 +1,6 @@
 # Project
 
-######An online retail website featuring games.
+An online retail website featuring games.
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ Command | Description
 |REST|API ENDPOINTS|
 |--:|:-:|
 CREATE|/game/
-READ|/media/
+READ|/game/
 UPDATE|/game/:id
 DELETE|/delete/:id
 DELETE(ALL)|/delete/all
