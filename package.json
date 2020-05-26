@@ -8,8 +8,8 @@
     "start": "nodemon server/server.js",
     "build-dev": "webpack --watch",
     "seed": "node ./database/dataGenerator.js",
-    "csv": "node --max-old-space-size=32768 ./database/csvGenerator.js"
-
+    "csv": "node --max-old-space-size=32768 ./database/csvGenerator.js",
+    "cas": "node ./database/writeCassandra.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
   "dependencies": {
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "cassandra-driver": "^4.5.2",
+    "csv-reader": "^1.0.6",
     "csv-write-stream": "^2.0.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
