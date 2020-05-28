@@ -42,7 +42,7 @@ const importCSV = () => {
     })
     .on('end', function (data) {
         console.timeEnd('took');
-        console.log('No more rows!');
+        console.log('end of csv');
     });
 
 }
