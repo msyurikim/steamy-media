@@ -62,7 +62,7 @@ const toCassandra = (data) => {
 
 const createEntry = (data, callback) => {
 
-    console.log('createEntry()');
+    //console.log('createEntry()');
 
     const query = `INSERT INTO test_dsbulk (id, title, splash, description, reviewsgeneral, reviewstotal, releasedate, developer, publisher, tags, percentage, video, images) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
@@ -82,7 +82,7 @@ const createEntry = (data, callback) => {
 
 const getEntry = (data, callback) => {
 
-    console.log('getEntry()');
+    //console.log('getEntry()');
     
     const query = `SELECT * from test_dsbulk WHERE id = ${data};`;    
 
