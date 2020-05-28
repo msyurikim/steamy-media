@@ -35,7 +35,7 @@ const client = new Client({
     client
     .query(query)
     .then(res => { console.log('table created') })
-    .catch(error => { console.log(error); })       
+    .catch(error => { console.log(error.detail); })       
 
   }
 
@@ -50,16 +50,53 @@ const client = new Client({
     client
     .query(existsQuery)
     .then(res => { if (!res.rows[0].exists) { spawnTable(); } })
-    .catch(error => { console.log(error) })
+    .catch(error => { console.log(error.detail) })
   }
 
-  //createTable();
+  createTable();
 
+  let inputStream = fs.createReadStream('/mnt/c/Users/Gen0/Development/steamy-media/data.csv', 'utf8');
 
   const importCSV = () => {
 
-    
+    console.time('took');  
 
-  }
+    inputStream
+    .pipe(new csvReader({ }))
+    .on('data', function (row) {
+        //console.log(row);
+        if (row[0] !== 'proxyId'){
+            toPostgres(row);
+        }
+    })
+    .on('end', function (data) {
+        console.timeEnd('took');
+        console.log('end of csv');
+    });
 
-  
+    }
+
+  const toPostgres = (data) => {
+
+        var query = `INSERT INTO test_table(id,
+            title,
+            splash,
+            description,
+            reviewsgeneral,
+            reviewstotal,
+            releasedate,
+            developer,
+            publisher,
+            tags,
+            percentage,
+            video,
+            images) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);`
+
+        client
+        .query(query, data)
+        .then(res => { })
+        .catch(error => { console.log(error.detail); })
+
+    }
+
+  //importCSV();

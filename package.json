@@ -9,8 +9,8 @@
     "build-dev": "webpack --watch",
     "seed": "node ./database/dataGenerator.js",
     "csv": "node --max-old-space-size=32768 ./database/csvGenerator.js",
-    "cas": "node ./database/writeCassandra.js",
-    "postgres": "node ./database/writePostgres.js"
+    "cas": "node --max-old-space-size=32768 /database/writeCassandra.js",
+    "postgres": "node --max-old-space-size=32768 ./database/writePostgres.js"
   },
   "repository": {
     "type": "git",
