@@ -3,7 +3,7 @@ const parser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const db = require('../database/config.js');
+//const db = require('../database/config.js');
 
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, '../public')));
@@ -18,7 +18,7 @@ app.get('/media', (req, res) => {
       res.status(200).json(data);
     }
   };
-  db.getGame(game, callback);
+  // db.getGame(game, callback);
 });
 
 // POST NEW GAME
@@ -31,7 +31,7 @@ app.post('/game', (req, res) => {
       res.status(200).json(data);
     }
   };
-  db.addNewGame(game, callback);
+  // db.addNewGame(game, callback);
 });
 
 // UPDATE GAME PUT
@@ -45,7 +45,7 @@ app.put('/game/:id', (req, res) => {
       res.status(200).json(data);
     }
   };
-  db.updateGame(gameID, game, callback);
+  // db.updateGame(gameID, game, callback);
 });
 
 // DELETE SINGLE GAME
@@ -59,7 +59,7 @@ app.post('/delete/:id', (req, res) => {
       res.status(200).json(data);
     }
   };
-  db.deleteSingle(game, callback);
+  // db.deleteSingle(game, callback);
 });
 
 // DELETE ALL GAMES
@@ -71,7 +71,7 @@ app.post('/delete/all', (req, res) => {
       res.status(200).json(data);
     }
   };
-  db.deleteAll();
+  // db.deleteAll();
 });
 
 module.exports = app;

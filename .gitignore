@@ -2,3 +2,6 @@ node_modules
 data.csv
 datatest.csv
 NOTES.md
+keys
+nrkey.js
+newrelic_agent.log
