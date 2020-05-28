@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 const app = require('./index');
+require('newrelic');
+
 
 const port = 8000;
 

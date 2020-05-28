@@ -10,7 +10,8 @@
     "seed": "node ./database/dataGenerator.js",
     "csv": "node --max-old-space-size=32768 ./database/csvGenerator.js",
     "cas": "node --max-old-space-size=32768 /database/writeCassandra.js",
-    "postgres": "node --max-old-space-size=32768 ./database/writePostgres.js"
+    "postgres": "node --max-old-space-size=32768 ./database/writePostgres.js",
+    "art": "artillery run artillery.yml"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/Team-Eowyn/steamy-media#readme",
   "dependencies": {
+    "artillery": "^1.6.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "cassandra-driver": "^4.5.2",
@@ -31,6 +33,7 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "mongoose": "^5.9.10",
+    "newrelic": "^6.8.0",
     "nodemon": "^2.0.3",
     "path": "^0.12.7",
     "pg": "^8.2.1",

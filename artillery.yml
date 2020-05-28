@@ -1,0 +1,15 @@
+config:
+  target: 'http://localhost:8000'
+  phases:
+      - duration: 1800
+        arrivalRate: 100
+        rampTo: 1000
+        name: "Max load"
+  defaults:
+
+scenarios:
+  - flow:
+    - get:
+        url: "/media/1"
+
+        

@@ -19,6 +19,7 @@ const client = new cassandra.Client({
     },
   });
 
+
 const createTable = (tableName) => {
 
     const query = 'CREATE TABLE test_csv_import (id int, title text, splash text, description text, reviewsgeneral text, reviewstotal int, releasedate text, developer text, publisher text, tags text, percentage int, video text, images text, PRIMARY KEY (id));';
@@ -28,9 +29,10 @@ const createTable = (tableName) => {
 
 };
 
-const importCSV = () => {
+//createTable();
 
-    console.time('took');  
+const importCSV = () => {
+    console.time('took');
 
     inputStream
     .pipe(new csvReader({ }))
@@ -44,7 +46,6 @@ const importCSV = () => {
         console.timeEnd('took');
         console.log('end of csv');
     });
-
 }
 
 const toCassandra = (data) => {    
@@ -57,8 +58,53 @@ const toCassandra = (data) => {
         
 }
 
-//createTable();
-importCSV();
+//importCSV();
+
+const createEntry = (data, callback) => {
+
+    //console.log('createEntry()');
+
+    const query = `INSERT INTO test_dsbulk (id, title, splash, description, reviewsgeneral, reviewstotal, releasedate, developer, publisher, tags, percentage, video, images) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+    client.execute(query, data, { prepare: true })
+    .catch(error => {
+        // console.log(data);
+        // console.log(err);
+        callback(error, null);
+       })
+    .then(result => {
+        //  console.log(data);
+        //  console.log(result); 
+         callback(null, result);
+        });
+
+};
+
+const getEntry = (data, callback) => {
+
+    //console.log('getEntry()');
+    
+    const query = `SELECT * from test_dsbulk WHERE id = ${data};`;    
+
+    client.execute(query)
+    .catch(error => {
+        // console.log(data);
+        // console.log(err);
+        callback(error, null);
+       })
+    .then(result => {
+        //  console.log(data);
+        //  console.log(result); 
+         callback(null, result);
+        });
+
+};
+
+module.exports.getEntry = getEntry;
+module.exports.createEntry = createEntry;
+
+
+
 
 /*
     DATA VISUALIZATION
