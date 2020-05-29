@@ -1,15 +1,39 @@
 config:
   target: 'http://localhost:8000'
   phases:
-      - duration: 1800
+      - duration: 60
+        arrivalRate: 1
+        rampTo: 10
+        maxVusers: 1
+        name: "arrivalRate 1 maxVusers 1"
+      - duration: 60
+        arrivalRate: 10
+        rampTo: 100
+        maxVusers: 10
+        name: "arrivalRate 10 maxVusers 10"
+      - duration: 300
         arrivalRate: 100
         rampTo: 1000
-        name: "Max load"
+        maxVusers: 100
+        name: "arrivalRate 100 maxVusers 100"
+      - duration: 300
+        arrivalRate: 1000
+        maxVusers: 1000
+        name: "arrivalRate 1000 maxVusers 1000"
+        
+      # - duration: 1800
+      #   arrivalRate: 100
+      #   rampTo: 1000
+      #   name: "Max load"
+
   defaults:
 
 scenarios:
   - flow:
     - get:
         url: "/media/1"
+    - post:
+        url: "/game/"
+          
 
         
