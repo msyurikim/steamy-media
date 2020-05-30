@@ -22,29 +22,6 @@ const vidOptions = [{ video: 'https://steamcdn-a.akamaihd.net/steam/apps/2028243
 
 const splashOptions = ['https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/Splash1.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/Splash2.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/Splash3.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/Splash4.jpg'];
 
-const alyx = {
-  proxyId: 237,
-  summary: {
-    title: 'Half-Life: Alyx',
-    splash: 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hlSplash.jpg',
-    description: 'Half-Life: Alyx is Valve’s VR return to the Half-Life series. It’s the story of an impossible fight against a vicious alien race known as the Combine, set between the events of Half-Life and Half-Life 2. Playing as Alyx Vance, you are humanity’s only chance for survival.',
-    reviews: { general: 'Overwhelmingly Positive', total: 25219 },
-    releaseDate: new Date('March 23, 2020'),
-    developer: 'Valve',
-    publisher: 'Valve',
-    tags: ['Action', 'Masterpiece', 'Adventure', 'VR', 'Story Rich', 'Atmospheric', 'Singleplayer', 'FPS', 'Horror', 'Sci-fi', 'First-Person', 'Shooter', 'Aliens', 'Beautiful', 'Zombies', 'Futuristic', 'Great Soundtrack', 'Psychological Horror', 'Memes'],
-    percentage: 98,
-  },
-  media: {
-    video: [{ video: 'https://steamcdn-a.akamaihd.net/steam/apps/256767815/movie480.webm?t=1583175736', thumbnail: 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hlvid1.jpg' },
-      { video: 'https://steamcdn-a.akamaihd.net/steam/apps/256776744/movie480.webm?t=1583175743', thumbnail: 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hlvid2.jpg' },
-      { video: 'https://steamcdn-a.akamaihd.net/steam/apps/256776745/movie480.webm?t=1583175752', thumbnail: 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hlvid3.jpg' },
-      { video: 'https://steamcdn-a.akamaihd.net/steam/apps/256776746/movie480.webm?t=1583175759', thumbnail: 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hlvid4.jpg' }],
-
-    images: ['https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl1.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl2.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl3.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl4.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl5.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl6.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl7.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl8.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl9.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl10.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl11.jpg', 'https://fec-pics.s3.us-east-2.amazonaws.com/FECassets/hl12.jpg'],
-  },
-};
-
 const seeder = () => {
   while (counter < 101) {
     const pics = [];
