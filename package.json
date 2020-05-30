@@ -8,8 +8,8 @@
     "start": "nodemon server/server.js",
     "build-dev": "webpack --watch",
     "seed": "node ./database/dataGenerator.js",
-    "csv": "node --max-old-space-size=32768 ./database/csvGenerator.js",
-    "cas": "node --max-old-space-size=32768 /database/writeCassandra.js",
+    "csv": "node --max-old-space-size=2048 ./database/csvGenerator.js",
+    "cas": "node --max-old-space-size=2048 /database/writeCassandra.js",
     "postgres": "node --max-old-space-size=32768 ./database/writePostgres.js",
     "art": "artillery run artillery.yml"
   },
