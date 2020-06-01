@@ -40,17 +40,45 @@ class App extends React.Component {
   componentDidMount() {
     const url = window.location.search;
     const id = url.substring(2);
-    console.log(id);
-    axios.get('/media', {
-      params: {
-        proxyId: id,
-      },
-    })
+    // console.log(id);
+    // console.log('axios get');
+
+    axios.get('/media/1')
       .then((result) => {
+
+        console.log('axios results');        
+        console.log(result.data.rows[0]);
+
+        var tags = result.data.rows[0].tags.split(",");
+        var images = result.data.rows[0].images.split(",");
+
+        var convert = {
+            summary: {
+              title: result.data.rows[0].title,
+              splash: result.data.rows[0].splash,
+              description: result.data.rows[0].description,
+              reviews: { general: result.data.rows[0].reviewsgeneral, total: result.data.rows[0].reviewstotal },
+              releaseDate: result.data.rows[0].releasedate,
+              developer: result.data.rows[0].developer,
+              publisher: result.data.rows[0].publisher,
+              tags: tags,
+            },
+            media: {
+              video: [result.data.rows[0].video],
+              images: images,
+            },                   
+        };
+
+        console.log(convert);
+
         this.setState({
-          game: result.data[0],
+          game: convert,
         });
+
       });
+
+      console.log(this.state.game)
+      
   }
 
   overlayHandler() {

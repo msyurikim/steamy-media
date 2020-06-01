@@ -4,11 +4,12 @@ const distance = cassandra.types.distance;
 const fs = require('fs');
 const csvReader = require('csv-reader');
 
-let inputStream = fs.createReadStream('/mnt/c/Users/Gen0/Development/steamy-media/data.csv', 'utf8');
+//let inputStream = fs.createReadStream('/mnt/c/Users/Gen0/Development/steamy-media/data.csv', 'utf8');
 
 // NEW CASSANDRA CLIENT
 const client = new cassandra.Client({
-    contactPoints: ['localhost'],
+    //contactPoints: ['localhost'],
+    contactPoints: ['http://ec2-54-177-118-85.us-west-1.compute.amazonaws.com:8000'],
     localDataCenter: 'datacenter1',
     keyspace: 'test_keyspace',
     pooling: {

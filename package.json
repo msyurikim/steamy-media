@@ -11,7 +11,8 @@
     "csv": "node --max-old-space-size=2048 ./database/csvGenerator.js",
     "cas": "node --max-old-space-size=2048 /database/writeCassandra.js",
     "postgres": "node --max-old-space-size=2048 ./database/writePostgres.js",
-    "art": "artillery run artillery.yml"
+    "art": "artillery run artillery.yml",
+    "artproxy": "artillery run artilleryproxy.yml"
   },
   "repository": {
     "type": "git",
