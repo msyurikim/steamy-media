@@ -24,6 +24,7 @@ app.post('/game', (req, res) => {
 
 // GET ONE
 app.get('/media/:id', (req, res) => {
+  //console.log('get()');
   const gameID = req.params.id;
   const callback = (err, data) => {
     if (err) {
