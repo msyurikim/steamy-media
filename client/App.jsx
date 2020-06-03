@@ -40,14 +40,14 @@ class App extends React.Component {
   componentDidMount() {
     const url = window.location.search;
     const id = url.substring(2);
-    // console.log(id);
+    console.log(id);
     // console.log('axios get');
 
-    axios.get('/media/1')
+    axios.get(`/media/${id}`)
       .then((result) => {
 
-        console.log('axios results');        
-        console.log(result.data.rows[0]);
+        // console.log('axios results');        
+        // console.log(result.data.rows[0]);
 
         var tags = result.data.rows[0].tags.split(",");
         var images = result.data.rows[0].images.split(",");
@@ -64,12 +64,12 @@ class App extends React.Component {
               tags: tags,
             },
             media: {
-              video: [result.data.rows[0].video],
+              video: [ { video: result.data.rows[0].video, thumbnail: 'https://steamy-media.s3-us-west-1.amazonaws.com/play.png' } ],
               images: images,
             },                   
         };
 
-        console.log(convert);
+        //console.log(convert);
 
         this.setState({
           game: convert,
