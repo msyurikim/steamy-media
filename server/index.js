@@ -89,6 +89,17 @@ app.post('/delete/all', (req, res) => {
   // db.deleteAll();
 });
 
+app.get('/loaderio-afb53e0f121d33ea8aa64a91bfdf082d/', (req, res) => {
+  const callback = (err, data) => {
+    if (err) {
+      res.status(404).json(err);
+    } else {
+      res.status(200).json(data);
+    }
+  };  
+  res.sendFile('/loaderio-afb53e0f121d33ea8aa64a91bfdf082d.txt', callback);
+});
+
 module.exports = app;
 
 /*
