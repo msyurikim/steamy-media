@@ -1,5 +1,6 @@
 const faker = require('faker');
 const fs = require('fs');
+const images = require('./images.js');
 
 console.time('took');
 
@@ -31,7 +32,7 @@ const vidOptions = [
 ]
 
 const splashOptions = [];
-const pics = [];
+//const pics = [];
 const tagList = [];
 const vids = [];
 
@@ -39,10 +40,10 @@ const vids = [];
 
 const seeder = () => {    
 
-    for (let i = 0; i < Math.ceil(Math.random() * 10); i += 1) {
-      //pics.push(imgOptions[Math.floor(Math.random() * 15)]);
-      pics.push(faker.image.imageUrl());
-    }
+    // for (let i = 0; i < Math.ceil(Math.random() * 10); i += 1) {
+    //   //pics.push(imgOptions[Math.floor(Math.random() * 15)]);
+    //   pics.push(faker.image.imageUrl());
+    // }
 
     for (let i = 0; i < 4; i++) {
       splashOptions.push(faker.image.imageUrl());
@@ -83,10 +84,17 @@ const nextData = () => {
   var tagListString = tagList.toString();
   var vidsString = vids.toString();
 
+  var pics = [];
+
+  for (let i = 0; i < Math.ceil(Math.random() * 10); i++) {
+  //pics.push(imgOptions[Math.floor(Math.random() * 15)]);
+    pics.push(images.imageList[Math.ceil(Math.random() * 945)]);
+  }
+
     var data = [
       counter,
       faker.commerce.productName(),
-      splashOptions[Math.floor(Math.random() * 4)],
+      images.imageList[Math.floor(Math.random() * 945)],
       faker.lorem.paragraph(),
       options[Math.floor(Math.random() * 9)],
       faker.random.number(),

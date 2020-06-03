@@ -2,23 +2,33 @@ const cassandra = require('cassandra-driver');
 const distance = cassandra.types.distance;
 
 const fs = require('fs');
-const csvReader = require('csv-reader');
+const csvReader = require('csv-reader'); 
 
 //let inputStream = fs.createReadStream('/mnt/c/Users/Gen0/Development/steamy-media/data.csv', 'utf8');
 
 // NEW CASSANDRA CLIENT
 const client = new cassandra.Client({
     //contactPoints: ['localhost'],
-    contactPoints: ['http://ec2-54-177-118-85.us-west-1.compute.amazonaws.com:8000'],
+    contactPoints: ['172.31.16.97'],
     localDataCenter: 'datacenter1',
     keyspace: 'test_keyspace',
-    pooling: {
-        coreConnectionsPerHost: {
-          [distance.local]: 50,
-          [distance.remote]: 1
-        } 
-    },
+    // protocolOptions: { port: 9042 }, 
+
+    // pooling: {
+    //     coreConnectionsPerHost: {
+    //       [distance.local]: 50,
+    //       [distance.remote]: 1
+    //     } 
+    // },
   });
+
+client.connect(function (err) {
+    if (err) {
+        console.log(err); 
+    } else {
+        console.log('cassandra connected :D')
+    }
+});
 
 
 const createTable = (tableName) => {
