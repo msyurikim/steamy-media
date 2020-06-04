@@ -22,13 +22,13 @@ const client = new cassandra.Client({
     // },
   });
 
-client.connect(function (err) {
-    if (err) {
-        console.log(err); 
-    } else {
-        console.log('cassandra connected :D')
-    }
-});
+// client.connect(function (err) {
+//     if (err) {
+//         console.log(err); 
+//     } else {
+//         console.log('cassandra connected :D')
+//     }
+// });
 
 
 const createTable = (tableName) => {
